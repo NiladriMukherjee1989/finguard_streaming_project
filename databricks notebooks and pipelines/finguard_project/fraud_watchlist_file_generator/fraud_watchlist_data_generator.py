@@ -7,14 +7,14 @@ from datetime import datetime
 import os
 
 # Read the CSV file from the same folder
-csv_path = "/Workspace/Users/databeli14@gmail.com/finguard_project/fraud_watchlist_file_generator/fraud_watchlist.csv"
+csv_path = "/Workspace/Users/niladri.mukherjee@atos.net/finguard_streaming_project/databricks notebooks and pipelines/finguard_project/fraud_watchlist_file_generator/fraud_watchlist.csv"
 df = pd.read_csv(csv_path)
 
 # Ensure entity_id is always a string for JSON serialization
 df['entity_id'] = df['entity_id'].astype(str)
 
 # Target volume path
-output_path = "/Volumes/finguard/source/fraud_watchlist/source_data/"
+output_path = "/Volumes/finguard/bronze_blob/watchlist_data/watchlist/"
 
 # Ensure the output directory exists
 dbutils.fs.mkdirs(output_path)
